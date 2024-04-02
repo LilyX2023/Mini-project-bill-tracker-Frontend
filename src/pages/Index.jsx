@@ -24,8 +24,22 @@ export default function Index(props) {
             </label>
             <button>Add Bill</button>
             </Form>
+
             <hr />
-            {allBills.map((bill, i) => <Bill bill={bill} key={i}/>)}
+            {allBills.map((bill, i) => {
+                const bill_id = bill.url.split("/")[4]; // Move the variable declaration here
+
+                return (
+                    <div key={i}>
+                        <Bill bill={bill} />
+                        {/* Delete Form */}
+                        <Form action={`/delete/${bill_id}`} method="POST">
+                            {/*console.log(bill.id)*/}
+                            <button style={{ "backgroundColor": "red" }}>Paid</button>
+                        </Form>
+                    </div>
+                );
+            })}
         </>
-    )
+    );
 }
