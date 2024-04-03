@@ -7,10 +7,10 @@ export default function Show(props) {
     const id = aBill?.url.split("/")[4]
     return (
         <div>
-            <h1>{aBill.bill_name}</h1>
+            {/*<h1>{aBill.bill_name}</h1>
             <h2>{aBill.due_date}</h2>
             <h2>{aBill.amount}</h2>
-            <h2>{aBill.status ? "Paid" : "Not Paid"}</h2>
+    <h2>{aBill.status ? "Paid" : "Not Paid"}</h2>*/}
             <div>
                 {/* Update form */}
                 <Form action={`/update/${id}/`} method="POST">
@@ -38,10 +38,6 @@ export default function Show(props) {
                     <button style={{"backgroundColor": "red"}}>Delete Bill</button>
                 </Form>
             </div>
-
-            <Link to="/">
-                <button>Go Back</button>
-            </Link>
         </div>
     )
 }
